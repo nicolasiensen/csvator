@@ -1,0 +1,4 @@
+body { font-family:Lucida Sans Unicode, Lucida Grande, sans-serif; padding: 1em }
+label { display:inline-block; width: 100px; cursor:pointer }
+form { float:left }
+.field { margin-bottom: .25em }
