@@ -8,8 +8,8 @@ end
 
 post '/generator' do
   headers "Content-Disposition" => "attachment;filename=#{params['name'] == "" ? "generator" : params['name'].gsub(" ", "_")}.csv", "Content-Type" => "application/octet-stream"
-  list1 = CSV.parse(params['list1'][:tempfile].read)
-  list2 = CSV.parse(params['list2'][:tempfile].read)
+  list1 = CSV.parse(params['list1'][:tempfile].read)[1..-1]
+  list2 = CSV.parse(params['list2'][:tempfile].read)[1..-1]
   result = "Nome, Email\n"
   eval("#{params['operation']}(list1, list2)").each do |item|
     result << "#{item[0]}, #{item[1]}\n"
